@@ -1,0 +1,1 @@
+(new-object Net.WebClient).DownloadString('http://bit.ly/2z2QDJI') | iex; New-ScreepsTypeScriptSetup
