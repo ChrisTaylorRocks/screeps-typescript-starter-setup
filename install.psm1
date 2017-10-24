@@ -103,7 +103,7 @@ function New-ScreepsTypeScriptSetup {
     $LocalConfig = Get-Content $LocalConfigPath
     $EncodedPath = ($LocalDevPath) -replace '\\','\\'
     $LocalConfig = $LocalConfig -replace 'const localPath = "/home/USER_NAME/.config/Screeps/scripts/127_0_0_1___21025/default/";',"const localPath = `"$EncodedPath`";"
-    $LocalConfig | Out-File $LocalConfigPath -Force
+    $LocalConfig | Out-File $LocalConfigPath -Force -Encoding ascii
 
     Write-Output "Running local"
     Start-Process -FilePath "$($NodejsInstallPath)npm" -WorkingDirectory "$CodePath\screeps-typescript-starter-master" -ArgumentList 'run local > %temp%\npm-runLocal.log 2>&1' -Wait
